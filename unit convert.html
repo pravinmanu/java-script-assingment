@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit converter</title>
+    <link href="unitcunvert.css" rel="stylesheet">
+</head>
+<body>
+    <form action="" id="culculator">
+        <h1>Unit Converter</h1>
+        <div class="row">
+            <label for="feet">
+                 feet
+                <!-- <option value="inches" id="inches">Inches</option>
+                <option value="meter" id="meter">Meter</option> -->
+</label>
+            <input id="feet"><br>
+ 
+        </div>
+        <div class="row">
+            <input id="button" type="submit" value="convert to cm">
+        </div>
+        <div id="results"></div>
+    </form>
+    <script>
+var form = document.querySelector('form');
+
+form.addEventListener('submit', function(e){
+var feet = document.querySelector('#feet');
+var results = document.querySelector('#results');
+e.preventDefault();
+feet = parseInt(feet.value);
+
+if(isNaN(feet)){
+    results.textContent="please enter a valid number";
+}
+else if(feet<=0){
+    results.textContent = "please enter a feet value > 0";
+}
+else {
+    var converted_value = feet * 30.48;
+    results.textContent = `${converted_value} cm`;
+    document.querySelector('#feet').value = '';
+    document.querySelector('#inches').value = '';
+}
+})
+</script>
+</body>
+</html>
