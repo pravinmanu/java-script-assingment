@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyng wait and Promis Assingment</title>
+</head>
+<body>
+    <!-- sync example -->
+    <div>    
+    <h1>Async and sync Examole</h1>
+    <h4 id="demo1"></h4>
+    <h4 id="demo2"></h4>
+    <h4 id="demo3"></h4>
+    </div>
+    <!-- Async Example -->
+    <div>
+    <h1>JavaScript async / await</h1>
+    <p>Wait 3 seconds (3000 millisecond) for this page to change.</p>
+    <h1 id="demo"></h1>
+    </div>
+    <script>
+        // sync example
+
+        document.getElementById("demo1").innerHTML = "Hi <br>"
+        document.getElementById("demo2").innerHTML = "Hello <br>"
+        document.getElementById("demo3").innerHTML = "This line a Synchronous Javasript <br>"
+        
+        setTimeout(function(){
+            document.write("This line will be executed Asynchronously");
+        },5000);
+        document.write("<br>");
+        document.write("Here we saw the examples of Synchronous and Asynchronous JS example");
+
+        // async / await example
+        async function myDisplay(){
+            let myPromise = new Promise((resolve, reject) => {
+                setTimeout(function(){resolve("I love you !!");},3000);
+            });
+            document.getElementById("demo").innerHTML = await myPromise;
+        }
+        myDisplay();
+
+// example try catch finally
+        function myfunc(){
+            try{
+                alert("Value of variable a is :" +a);
+            }
+            catch(e){
+                alert("Error:" +e.description);
+            }
+            finally{
+                alert("Finally block");
+            }
+        }
+        myfunc();
+
+        let Promis = new Promise((resolve, reject) => {
+            const x= 9;
+            const y =10;
+            if(x===y){
+                resolve();
+            }
+            else{
+                reject();
+            }
+        });
+        Promis.then(function(){
+            console.log("success,No error found");
+        })
+        .catch(function(){
+            console.log("Error found");
+        })
+
+    </script>
+</body>
+</html>
